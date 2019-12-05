@@ -1,0 +1,35 @@
+{
+  "name": "hooks-combined-reducer",
+  "version": "1.0.0",
+  "description": "A helper utility to apply combineReducers functionality in react useReducer hook",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankita1010/hooks-combined-reducer.git"
+  },
+  "keywords": [
+    "react",
+    "react-hooks",
+    "reducer",
+    "combine",
+    "reducers",
+    "hooks"
+  ],
+  "author": "Ankita Chakraborty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankita1010/hooks-combined-reducer/issues"
+  },
+  "homepage": "https://github.com/ankita1010/hooks-combined-reducer#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4"
+  }
+}
