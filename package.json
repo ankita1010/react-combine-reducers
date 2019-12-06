@@ -1,5 +1,5 @@
 {
-  "name": "hooks-combined-reducer",
+  "name": "react-combine-reducers",
   "version": "1.0.0",
   "description": "A helper utility to apply combineReducers functionality in react useReducer hook",
   "main": "index.js",
@@ -21,9 +21,9 @@
   "author": "Ankita Chakraborty",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ankita1010/hooks-combined-reducer/issues"
+    "url": "https://github.com/ankita1010/react-combine-reducers/issues"
   },
-  "homepage": "https://github.com/ankita1010/hooks-combined-reducer#readme",
+  "homepage": "https://github.com/ankita1010/react-combine-reducers#readme",
   "dependencies": {
     "@babel/polyfill": "^7.7.0"
   },
