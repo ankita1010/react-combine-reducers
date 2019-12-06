@@ -1,3 +1,3 @@
 'use strict'
-const lib = require('./lib');
-module.exports = lib;
+const utility = require('./lib/utility');
+module.exports = utility.combineReducers;
