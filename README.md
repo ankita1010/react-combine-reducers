@@ -22,31 +22,26 @@ The function takes an object of the following structure -
 		reducertwo: [reducerTwo, initialStateTwo]
 	});`
   
-Example functional component -
+Example -
 
-
-`
-const App = () => {
-
+```
 	const initialStateOne = {
 		name: "Harry",
 		city: "London"
-    }
-  
+	}
 	const initialStateTwo = {
 		country: "UK",
 		userID: 1001
-    }
-  
+	}
 	const reducerOne = (state, action) => {
 		switch (action.type) {
-			case "ACTION_ONE": return { ...state, name: "Tom" }; 
-			default: return state;   
+			case "ACTION_ONE": return { ...state, name: "Puli" };
+			default: return state;
 		}
 	}
 	const reducerTwo = (state, action) => {
 		switch (action.type) {
-			case "ACTION_TWO": return { ...state, country: "Scotland" };
+			case "ACTION_TWO": return { ...state, country: "Germany" };
 			default: return state;
 		}
 	}
@@ -55,15 +50,8 @@ const App = () => {
 		reducertwo: [reducerTwo, initialStateTwo]
 	});
 	const [state, dispatch] = useReducer(rootReducerCombined, initialStateCombined);
-	return (
-		<div className="app-block">
-			<h1>App</h1>
-		</div>
-	)
-}
 
-`
-
+```
 
 ## Issues:
 If you find a bug, please file an issue on [our issue tracker on github](https://github.com/ankita1010/react-combine-reducers/issues).
