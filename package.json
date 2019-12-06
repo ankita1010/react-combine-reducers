@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ankita1010/hooks-combined-reducer.git"
+    "url": "git+https://github.com/ankita1010/react-combine-reducers.git"
   },
   "keywords": [
     "react",
