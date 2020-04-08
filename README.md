@@ -1,109 +1,170 @@
 # React Combine Reducers
 
-### A helper utility to apply combineReducers functionality in react `useReducer` hook.
+This module contains a handy `combineReducers` function to use in conjunction with the React hook `useReducer`.
+
+You may use it with **JavaScript** or **TypeScript**.
 
 
 ## Installation
 
- Install the module by running -
+[![npm version](https://badge.fury.io/js/react-combine-reducers.svg)](https://badge.fury.io/js/react-combine-reducers)
 
-`$ npm install react-combine-reducers `
+Install the dependency using the following command:
+```bash
+npm install react-combine-reducers
+```
+
+If using typescript, you can also install the types:
+```bash
+npm install @types/react-combine-reducers
+```
 
 ## Usage
 
-Import the helper function -
+Once installed, import the helper function and use it like so:
 
-` import combineReducers from 'react-combine-reducers'; `
+```javascript
+  import { useReducer } from 'react';
+  import combineReducers from 'react-combine-reducers';
 
-The function takes an object of the following structure - 
-
-`const [rootReducerCombined, initialStateCombined] = combineReducers({
-		reducerOne: [reducerOne, initialStateOne],
-		reducertwo: [reducerTwo, initialStateTwo]
-	});`
-  
-Javascript Example -
-
-```
-	const initialStateOne = {
-		name: "Harry",
-		city: "London"
-	}
-	const initialStateTwo = {
-		country: "UK",
-		userID: 1001
-	}
-	const reducerOne = (state, action) => {
-		switch (action.type) {
-			case "ACTION_ONE": return { ...state, name: "Puli" };
-			default: return state;
-		}
-	}
-	const reducerTwo = (state, action) => {
-		switch (action.type) {
-			case "ACTION_TWO": return { ...state, country: "Germany" };
-			default: return state;
-		}
-	}
-	const [rootReducerCombined, initialStateCombined] = combineReducers({
-		reducerOne: [reducerOne, initialStateOne],
-		reducertwo: [reducerTwo, initialStateTwo]
-	});
-	const [state, dispatch] = useReducer(rootReducerCombined, initialStateCombined);
-
+  const [reducerCombined, initialStateCombined] = combineReducers({
+    reducerOne: [reducerOne, initialStateOne],
+    reducerTwo: [reducerTwo, initialStateTwo],
+    // ...
+  });
 ```
 
-Typescript Example -
+### Working Javascript Example
 
-```
-	type User = {
-  		name: string,
-		city: string,
-	}
-	type CombinedState = {
-		reducerOne: User,
-		reducertwo: User
-	}
-	type Action = {
-  		type: string,
-  		payload?:any // replace any with your own known payload types
-	}
-	type CombinedReducerType = (state: CombinedState, action: Action) => CombinedState;
-	const initialStateOne: User = {
-		name: "Harry",
-		city: "London"
-	}
-	const initialStateTwo: User = {
-		country: "UK",
-		userID: 1001
-	}
-	const reducerOne = (state: User, action: Action) => {
-		switch (action.type) {
-			case "ACTION_ONE": return { ...state, name: "Puli" };
-			default: return state;
-		}
-	}
-	const reducerTwo = (state: User, action: Action) => {
-		switch (action.type) {
-			case "ACTION_TWO": return { ...state, country: "Germany" };
-			default: return state;
-		}
-	}
-	const [rootReducerCombined, initialStateCombined] = combineReducers({
-		reducerOne: [reducerOne, initialStateOne],
-		reducertwo: [reducerTwo, initialStateTwo]
-	});
-	const [{ reducerOne, reducertwo }, dispatch] = useReducer<CombinedReducerType>(rootReducerCombined, initialStateCombined);
+```javascript
+  import { useReducer } from 'react';
+  import combineReducers from 'react-combine-reducers';
 
+  const initialIdentity = {
+    name: 'Harry'
+  }
+
+  const initialLocation = {
+    country: 'UK',
+    city: 'London'
+  }
+
+  const identityReducer = (state, action) => {
+    switch (action.type) {
+      case 'ACTION_A':
+        return { ...state, name: 'Puli' };
+      default: return state;
+    }
+  }
+
+  const locationReducer = (state, action) => {
+    switch (action.type) {
+      case 'ACTION_B':
+        return { ...state, city: 'Manchester' };
+      default: return state;
+    }
+  }
+
+  const [profileReducer, initialProfile] = combineReducers({
+    identity: [identityReducer, initialIdentity],
+    location: [locationReducer, initialLocation]
+  });
+
+  const [state, dispatch] = useReducer(profileReducer, initialProfile);
+
+  console.log(state);
+  // Outputs the following state:
+  // {
+  //   identity: {
+  //     name: "Harry"
+  //   },
+  //   location: {
+  //     country: "UK",
+  //     city: "London"
+  //   }
+  // }
 ```
-Edit your main .d.ts file and add:
-```
-declare module 'react-combine-reducers'
+
+### Working Typescript Example
+
+```typescript
+  import { useReducer } from 'react';
+  import combineReducers from 'react-combine-reducers';
+
+  type Identity = {
+    name: string;
+  };
+
+  type Location = {
+    country: string;
+    city: string;
+  };
+
+  type ProfileState = {
+    identity: Identity;
+    location: Location;
+  };
+
+  type Action = {
+    type: string;
+    payload: any;
+  };
+
+  type ProfileReducer = (state: ProfileState, action: Action) => ProfileState;
+
+  const initialIdentity: Identity = {
+    name: 'Harry'
+  };
+
+  const initialLocation: Location = {
+    country: 'UK',
+    city: 'London'
+  };
+
+  const identityReducer = (state: Identity, action: Action) => {
+    switch (action.type) {
+      case 'ACTION_A':
+        return { ...state, name: 'Puli' };
+      default:
+        return state;
+    }
+  };
+
+  const locationReducer = (state: Location, action: Action) => {
+    switch (action.type) {
+      case 'ACTION_B':
+        return { ...state, city: 'Manchester' };
+      default:
+        return state;
+    }
+  };
+
+  const [profileReducer, initialProfile] = combineReducers<ProfileReducer>({
+    identity: [identityReducer, initialIdentity],
+    location: [locationReducer, initialLocation]
+  });
+
+  const [state, dispatch] = useReducer<ProfileReducer>(
+    profileReducer,
+    initialProfile
+  );
+
+  console.log(state);
+  // Outputs the following state:
+  // {
+  //   identity: {
+  //     name: "Harry"
+  //   },
+  //   location: {
+  //     country: "UK",
+  //     city: "London"
+  //   }
+  // }
 ```
 
 
 ## Issues:
-If you find a bug, please file an issue on [our issue tracker on github](https://github.com/ankita1010/react-combine-reducers/issues).
+If you find a bug, please file an issue on [our issue tracker on GitHub](https://github.com/ankita1010/react-combine-reducers/issues).
 
 Give us a star if this helped you!
 Cheers!
