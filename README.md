@@ -34,6 +34,23 @@ Once installed, import the helper function and use it like so:
   });
 ```
 
+To avoid the initial instantiation call you can use the UseCallback hook from
+react
+
+```javascript
+  import { useReducer, useCallback } from 'react';
+  import combineReducers from 'react-combine-reducers';
+
+  const [reducerCombined, initialStateCombined] = useCallback(
+    combineReducers({
+      reducerOne: [reducerOne, initialStateOne],
+      reducerTwo: [reducerTwo, initialStateTwo],
+      // ...
+    }), 
+    [reducerCombined, initialStateCombined]
+   );
+```
+
 ### Working Javascript Example
 
 ```javascript
