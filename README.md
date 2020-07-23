@@ -34,7 +34,7 @@ Once installed, import the helper function and use it like so:
   });
 ```
 
-To avoid the initial instantiation call you can use the UseCallback hook from
+To avoid the initial instantiation call you can use the `useCallback` hook from
 react
 
 ```javascript
