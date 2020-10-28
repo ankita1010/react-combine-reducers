@@ -1,7 +1,7 @@
 {
   "name": "react-combine-reducers",
-  "version": "1.0.4",
-  "description": "A helper utility to apply combineReducers functionality in react useReducer hook for large scale applications",
+  "version": "1.1.0",
+  "description": "A helper utility to apply combineReducers functionality in React useReducer hook for large scale applications",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
