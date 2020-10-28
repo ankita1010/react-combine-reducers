@@ -4,7 +4,8 @@
   "description": "A helper utility to apply combineReducers functionality in react useReducer hook for large scale applications",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib"
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "test": "standard --fix && jest"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,11 @@
     "url": "https://github.com/ankita1010/react-combine-reducers/issues"
   },
   "homepage": "https://github.com/ankita1010/react-combine-reducers#readme",
+  "standard": {
+    "ignore": [
+      "/lib"
+    ]
+  },
   "dependencies": {
     "@babel/polyfill": "^7.7.0"
   },
