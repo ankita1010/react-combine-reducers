@@ -1,4 +1,5 @@
-import '@babel/polyfill'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 export const combineReducers = reducers => {
   const reducerKeys = Object.keys(reducers)
   const reducerValues = Object.values(reducers)
