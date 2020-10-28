@@ -1,7 +1,7 @@
 {
   "name": "react-combine-reducers",
-  "version": "1.0.4",
-  "description": "A helper utility to apply combineReducers functionality in react useReducer hook for large scale applications",
+  "version": "1.1.0",
+  "description": "A helper utility to apply combineReducers functionality in React useReducer hook for large scale applications",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
@@ -26,6 +26,11 @@
   },
   "homepage": "https://github.com/ankita1010/react-combine-reducers#readme",
   "standard": {
+    "globals": [
+      "describe",
+      "expect",
+      "it"
+    ],
     "ignore": [
       "/lib"
     ]
@@ -36,6 +41,7 @@
   "devDependencies": {
     "@babel/cli": "^7.7.4",
     "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4"
+    "@babel/preset-env": "^7.7.4",
+    "jest": "^26.6.1"
   }
 }

@@ -64,7 +64,6 @@ describe('combineReducers', () => {
           city: 'London'
         }
       }
-
       const profileWithCityChangeOnly = {
         identity: {
           name: 'Harry'
@@ -74,14 +73,12 @@ describe('combineReducers', () => {
           city: 'Manchester'
         }
       }
-
       expect(changeName).toEqual(profileWithNameChangeOnly)
       expect(changeCity).toEqual(profileWithCityChangeOnly)
     })
 
     it('correctly changes more than one slice of the state', () => {
       const changeNameThenCity = profileReducer(changeName, { type: 'CHANGE_CITY' })
-
       const changeBoth = {
         identity: {
           name: 'Puli'
