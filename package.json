@@ -4,7 +4,8 @@
   "description": "A helper utility to apply combineReducers functionality in react useReducer hook for large scale applications",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib"
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@babel/cli": "^7.7.4",
     "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4"
+    "@babel/preset-env": "^7.7.4",
+    "jest": "^26.6.1"
   }
 }
