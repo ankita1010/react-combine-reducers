@@ -1,6 +1,6 @@
 {
   "name": "react-combine-reducers",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "A helper utility to apply combineReducers functionality in React useReducer hook for large scale applications",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,8 @@
     ]
   },
   "dependencies": {
-    "core-js": "^3.6.5"
+    "core-js": "^3.6.5",
+    "crud-object-diff": "^2.2.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.0",
