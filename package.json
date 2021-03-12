@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "crud-object-diff": "^2.2.2"
+    "crud-object-diff": "^2.2.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.0",
