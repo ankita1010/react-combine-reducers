@@ -25,8 +25,8 @@ export const combineReducers = reducers => {
           action
         )
         hasStateChanged =
-          hasStateChanged || JSON.stringify(nextStateForCurrentKey) !== JSON.stringify(prevStateForCurrentKey)
-        newState[currentKey] = nextStateForCurrentKey
+          hasStateChanged || nextStateForCurrentKey) !== prevStateForCurrentKey
+ newState[currentKey] = nextStateForCurrentKey
       }
       return hasStateChanged ? newState : state
     },
